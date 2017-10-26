@@ -24,7 +24,7 @@ LABEL io.fabric8.s2i.version.maven="{{= fp.config.base.lib.version.maven }}" \
 USER root
 
 # Use /dev/urandom to speed up startups.
-RUN echo securerandom.source=file:/dev/urandom >> /usr/lib/jvm/java/jre/lib/security/java.security
+RUN echo securerandom.source=file:/dev/urandom >> /usr/lib/jvm/java/conf/security/java.security
 
 # Add jboss user to the root group
 RUN usermod -g root -G jboss jboss

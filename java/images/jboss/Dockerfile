@@ -1,4 +1,4 @@
-FROM jboss/base-jdk:8
+FROM jpoth/openjdk-9:GA
 
 ENV JOLOKIA_VERSION="1.3.6" \
     PATH=$PATH:"/usr/local/s2i" \
@@ -20,7 +20,7 @@ LABEL io.fabric8.s2i.version.maven="3.3.3" \
 USER root
 
 # Use /dev/urandom to speed up startups.
-RUN echo securerandom.source=file:/dev/urandom >> /usr/lib/jvm/java/jre/lib/security/java.security
+RUN echo securerandom.source=file:/dev/urandom >> /usr/lib/jvm/java/conf/security/java.security
 
 # Add jboss user to the root group
 RUN usermod -g root -G jboss jboss
